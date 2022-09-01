@@ -19,3 +19,34 @@ File `example_reconstruction_correction.py` provides an example use of our Pytho
 * Our example script uses the ExponentiatedGradient fair learning technique from the `FairLearn` library. To run it, [FairLearn](https://fairlearn.org/) must be installed.
 * Our example script uses several tools from the `scikit-learn` library. To run it, [scikit-learn](https://scikit-learn.org/stable/) must be installed.
 * Other popular required libraries: `numpy`, `pandas`
+
+# Example output
+
+Hereafter is an example output produced by our example script for the statistical parity metric with unfairness tolerance epsilon = 0.0 (random_state_value=42):
+
+```console
+Data is split among: 
+Training set: 15375 examples
+Attack set: 14923 examples
+Test set: 14924 examples
+Number of features for inference:  13 
+
+Training target fair model...
+Trained!
+Train unfairness (statistical_parity) =  1.333702367489753e-06
+Train accuracy:  0.8394146341463414
+Test accuracy:  0.8308094344679711 
+
+Training baseline adversary...
+Machine learning attacker ready. Accuracy on attack set is  0.7639884741673926
+Trained!
+Computing the probabilities exponentiation factor value...
+Exponentiating all probabilities to factor  6 
+
+Performing the reconstruction correction...
+Done! 
+
+Corrected reconstruction:  0.8300487804878048  (was  0.7654634146341464  before)
+Absolute improvement =  0.06458536585365848
+Relative improvement =  0.08437420341575318
+```
